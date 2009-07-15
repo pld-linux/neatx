@@ -23,6 +23,7 @@ Requires:	openssh-clients
 Requires:	xorg-app-xauth
 Requires:	xorg-app-xrdb
 Requires:	xterm
+Conflicts:	freenx-server
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,7 +62,7 @@ install doc/neatx.conf.example $RPM_BUILD_ROOT%{_sysconfdir}/neatx.conf
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-%useradd -u 221 -d %{_libdir}/neatx/home -s %{_libdir}/neatx/nxserver-login-wrapper -g users -c "Neatx User" neatx
+%useradd -u 160 -d %{_libdir}/neatx/home -s %{_libdir}/neatx/nxserver-login-wrapper -g users -c "Neatx User" nx
 
 %post   -p <lua>
 %lua_add_etc_shells %{_libdir}/neatx/nxserver-login-wrapper
