@@ -7,7 +7,7 @@ License:	GPL v2
 Group:		X11/Applications/Networking
 # svn export http://neatx.googlecode.com/svn/trunk/ neatx
 Source0:	%{name}-r%{snap}.tar.bz2
-# Source0-md5:	f1b4ea72664596ec57ad5df550b40289
+# Source0-md5:	4e4159c01b5561808c0f99ac20a1e8c3
 URL:		http://code.google.com/p/neatx/
 BuildRequires:	autoconf
 BuildRequires:	automake
