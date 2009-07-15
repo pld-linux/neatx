@@ -51,7 +51,7 @@ sed -i -e 's#NXAGENT =.*#NXAGENT = "%{_bindir}/nxagent"#g' lib/constants.py
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_sysconfdir}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},/var/lib/neatx/{home,sessions}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -66,7 +66,12 @@ install doc/neatx.conf.example $RPM_BUILD_ROOT%{_sysconfdir}/neatx.conf
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-%useradd -u 160 -d %{_libdir}/neatx/home -s %{_libdir}/neatx/nxserver-login-wrapper -g users -c "Neatx User" nx
+%useradd -u 160 -d /var/lib/neatx/home -s %{_libdir}/neatx/nxserver-login-wrapper -g users -G wheel -c "Neatx User" nx
+
+%postun
+if [ "$1" = "0" ]; then
+	%userremove nx
+fi
 
 %post   -p <lua>
 %lua_add_etc_shells %{_libdir}/neatx/nxserver-login-wrapper
@@ -81,6 +86,9 @@ end
 
 %doc doc/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/neatx.conf
+%dir /var/lib/neatx
+%attr(750,nx,root) /var/lib/neatx/home
+%attr(1777,root,root) /var/lib/neatx/sessions
 %dir %{_libdir}/neatx
 %attr(755,root,root) %{_libdir}/neatx/*
 %{_datadir}/neatx
