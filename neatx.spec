@@ -38,6 +38,7 @@ from NoMachine.
 %setup -q -n %{name}
 
 sed -i -e 's#NXAGENT =.*#NXAGENT = "%{_bindir}/nxagent"#g' lib/constants.py
+sed -i -e 's#NETCAT =.*#NETCAT = "%{_bindir}/nc"#g' lib/constants.py
 
 %build
 %{__aclocal}
@@ -87,8 +88,8 @@ end
 %doc doc/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/neatx.conf
 %dir /var/lib/neatx
-%attr(750,nx,root) /var/lib/neatx/home
-%attr(1777,root,root) /var/lib/neatx/sessions
+%dir %attr(750,nx,root) /var/lib/neatx/home
+%dir %attr(1777,root,root) /var/lib/neatx/sessions
 %dir %{_libdir}/neatx
 %attr(755,root,root) %{_libdir}/neatx/*
 %{_datadir}/neatx
