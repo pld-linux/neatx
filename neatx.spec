@@ -52,12 +52,13 @@ sed -i -e 's#NETCAT =.*#NETCAT = "%{_bindir}/nc"#g' lib/constants.py
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},/var/lib/neatx/{home,sessions}}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},/var/lib/neatx/{home/.ssh,sessions}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install doc/neatx.conf.example $RPM_BUILD_ROOT%{_sysconfdir}/neatx.conf
+install extras/authorized_keys.nomachine $RPM_BUILD_ROOT/var/lib/neatx/home/.ssh/authorized_keys
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
@@ -89,6 +90,8 @@ end
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/neatx.conf
 %dir /var/lib/neatx
 %dir %attr(750,nx,root) /var/lib/neatx/home
+%dir %attr(750,nx,root) /var/lib/neatx/home/.ssh
+%config(noreplace) %verify(not md5 mtime size) /var/lib/neatx/home/.ssh/authorized_keys
 %dir %attr(1777,root,root) /var/lib/neatx/sessions
 %dir %{_libdir}/neatx
 %attr(755,root,root) %{_libdir}/neatx/*
