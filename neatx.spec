@@ -77,7 +77,7 @@ end
 %doc doc/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/neatx.conf
 %dir %{_libdir}/neatx
-%attr(755,nx,root) %{_libdir}/neatx/*
+%attr(755,root,root) %{_libdir}/neatx/*
 %{_datadir}/neatx
 %dir %{py_sitescriptdir}/neatx
 %{py_sitescriptdir}/neatx/*.py[co]
