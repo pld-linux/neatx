@@ -20,6 +20,10 @@ Requires:	coreutils
 Requires:	nc
 Requires:	nx
 Requires:	openssh-clients
+Requires:	python-pexpect
+Requires:	python-pygobject
+Requires:	python-pygtk-gtk
+Requires:	python-simplejson
 Requires:	xorg-app-xauth
 Requires:	xorg-app-xrdb
 Requires:	xterm
@@ -33,7 +37,7 @@ from NoMachine.
 %prep
 %setup -q -n %{name}
 
-sed -i -e 's#NXAGENT =.*#NXAGENT = %{_bindir}/nxagent#g' lib/constants.py
+sed -i -e 's#NXAGENT =.*#NXAGENT = "%{_bindir}/nxagent"#g' lib/constants.py
 
 %build
 %{__aclocal}
