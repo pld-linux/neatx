@@ -1,4 +1,4 @@
-%define	snap	13
+%define	snap	38
 Summary:	Open Source NX server, similar to the commercial NX server from NoMachine
 Name:		neatx
 Version:	0.1
@@ -7,7 +7,7 @@ License:	GPL v2
 Group:		X11/Applications/Networking
 # svn export http://neatx.googlecode.com/svn/trunk/ neatx
 Source0:	%{name}-r%{snap}.tar.bz2
-# Source0-md5:	4e4159c01b5561808c0f99ac20a1e8c3
+# Source0-md5:	ce7c740ff099ba4e1a1f94209b18fe6d
 URL:		http://code.google.com/p/neatx/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -37,8 +37,8 @@ from NoMachine.
 %prep
 %setup -q -n %{name}
 
-sed -i -e 's#NXAGENT =.*#NXAGENT = "%{_bindir}/nxagent"#g' lib/constants.py
-sed -i -e 's#NETCAT =.*#NETCAT = "%{_bindir}/nc"#g' lib/constants.py
+#sed -i -e 's#NXAGENT =.*#NXAGENT = "%{_bindir}/nxagent"#g' lib/constants.py
+#sed -i -e 's#NETCAT =.*#NETCAT = "%{_bindir}/nc"#g' lib/constants.py
 
 %build
 %{__aclocal}
