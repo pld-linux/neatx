@@ -1,13 +1,15 @@
-%define	snap	38
+%define	snap	43
 Summary:	Open Source NX server, similar to the commercial NX server from NoMachine
 Name:		neatx
 Version:	0.1
 Release:	0.r%{snap}.1
 License:	GPL v2
 Group:		X11/Applications/Networking
-# svn export http://neatx.googlecode.com/svn/trunk/ neatx
+# svn export http://neatx.googlecode.com/svn/trunk/neatx neatx
+# find neatx -name .svn | xargs rm -rf
+# tar -cjf neatx-%{snap}.tar.bz2 neatx
 Source0:	%{name}-r%{snap}.tar.bz2
-# Source0-md5:	ce7c740ff099ba4e1a1f94209b18fe6d
+# Source0-md5:	b2ee613a415012bde34bb162ca220a26
 URL:		http://code.google.com/p/neatx/
 BuildRequires:	autoconf
 BuildRequires:	automake
