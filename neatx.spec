@@ -1,4 +1,4 @@
-%define	rev	47
+%define	rev	59
 Summary:	Open Source NX server, similar to the commercial NX server from NoMachine
 Name:		neatx
 Version:	0.1
@@ -13,6 +13,7 @@ Source0:	%{name}-r%{rev}.tar.bz2
 URL:		http://code.google.com/p/neatx/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	docutils
 BuildRequires:	python-devel
 BuildRequires:	python-docutils
 BuildRequires:	rpm-pythonprov
