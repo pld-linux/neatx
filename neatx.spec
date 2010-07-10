@@ -9,7 +9,7 @@ Group:		X11/Applications/Networking
 # find neatx -name .svn | xargs rm -rf
 # tar -cjf neatx-%{rev}.tar.bz2 neatx
 Source0:	%{name}-r%{rev}.tar.bz2
-# Source0-md5:	1cc2f43eac51c69360b7dcfa72b7ed4b
+# Source0-md5:	2d66bc88cd584594d1f753c345b07ccc
 URL:		http://code.google.com/p/neatx/
 BuildRequires:	autoconf
 BuildRequires:	automake
