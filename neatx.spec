@@ -20,7 +20,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 Requires:	bash
 Requires:	coreutils
-Requires:	nc
+Requires:	netcat
 Requires:	nx
 Requires:	openssh-clients
 Requires:	python-pexpect
