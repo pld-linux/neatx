@@ -1,14 +1,15 @@
-%define	rev	59
+%define		subver	59
+%define		rel		2
 Summary:	Open Source NX server, similar to the commercial NX server from NoMachine
 Name:		neatx
 Version:	0.1
-Release:	0.r%{rev}.1
+Release:	0.r%{subver}.%{rel}
 License:	GPL v2
 Group:		X11/Applications/Networking
 # svn export http://neatx.googlecode.com/svn/trunk/neatx neatx
 # find neatx -name .svn | xargs rm -rf
-# tar -cjf neatx-%{rev}.tar.bz2 neatx
-Source0:	%{name}-r%{rev}.tar.bz2
+# tar -cjf neatx-%{subver}.tar.bz2 neatx
+Source0:	%{name}-r%{subver}.tar.bz2
 # Source0-md5:	2d66bc88cd584594d1f753c345b07ccc
 URL:		http://code.google.com/p/neatx/
 BuildRequires:	autoconf
